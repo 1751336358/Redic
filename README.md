@@ -1,3 +1,7 @@
+# Redic工作原理
+Redic对Jedis进行简单的封装，Redic根据key的Hash值来决定将数据写入（或读取）哪个Redis分片，一个Redis集群有多个分片，每一分片可以有多个Slave节点，Redic可以达到写主读从的目的。
+## 致谢
+感谢李艳鹏先生的Redic框架，源代码中有一个小bug，只能写主读主而不能写主读从，经过自己的修改，将新的代码提交到github上。
 # REDIC
 
 ## Redic是什么？
