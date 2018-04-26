@@ -4,9 +4,19 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean id="redic" class="com.robert.redis.redic.Redic" init-method="init">
+		<!-- 
+			是否读写分离（支持读的负载均衡），对于有slave的要设置为true，默认是false
+		 -->
 		<property name="readWriteSeparate" value="true"></property>
 		<property name="nodeConnStrs">
 			<list>
+				<!-- 
+					一个value代表一个Redis分片,可配置多个，代表多个Redis分片
+					格式：
+					<value>Master1IP,Slave1_1IP,Slave1_2IP</value>
+					<value>Master2IP,Slave2_1IP,Slave2_2IP</value>
+					<value>Master3IP,Slave3_1IP,Slave3_2IP</value>
+				 -->
 				<value>${redic.cache.node.conn1}</value>
 			</list>
 		</property>
